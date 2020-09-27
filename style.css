@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css?family=Calistoga');
+
+body{
+  background: rgb(63, 63, 63);
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    border: 5px solid black;
+    padding: .25em;
+    margin: auto;
+    width: 25em;
+    /* height: 400px; */
+    justify-content: center;
+    font-family: 'Calistoga', sans-serif;
+    border-radius: 5%;
+    box-shadow: 0 3px 0 0 #4a4b56, 0 4px 4px -1px rgba(0, 0, 0, 0.6), 0 4px 6px 1px rgba(0, 0, 0, 0.3), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+    background-color: #6D6F7F;
+    background-image: linear-gradient(-45deg, #6D6F7F, #61708b);
+}
+
+
+/* 
+---------------------------------------------
+The Display
+---------------------------------------------
+*/   
+.display{
+  display: flex;
+  height: 4em;
+  font-size: 2em;
+  margin: .3em;
+  background: whitesmoke;
+  border: .2em solid black;
+  /* border-radius: 8%; */
+}
+
+/* 
+---------------------------------------------
+The Buttons
+---------------------------------------------
+*/  
+
+.buttons{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, auto);
+  height: 12em;
+  padding: .25em;
+  margin: .3em;
+  /* background-image: linear-gradient(lightslategray, darkslategray); */
+  grid-column-gap: .25em;
+  grid-row-gap: .25em;
+  font-size: 2em;
+  grid-template-areas: 
+  "seven eight nine divide delete"
+  "four five six multiply clear"
+  "one two three minus equal"
+  "zero decimal sign plus equal";
+}
+
+#btnEqual{
+  grid-area: equal;
+  background: green;
+}
+
+/* Old setting
+button {
+  border-radius: 18%;
+  font-weight: bolder;
+  font-size: 1em;
+  border: .1em solid lightgrey;
+  background: rgb(184,213,213);
+  background: linear-gradient(153deg, rgba(184,213,213,1) 71%, rgba(164,163,161,1) 100%);
+}
+*/
+
+/* 
+---------------------------------------------
+These CSS styles below are copied/referenced from: https://github.com/loup-brun/buttons
+---------------------------------------------
+*/
+.btn {
+  /*
+  font-size: inherit;
+  padding: 0.8em 1.6em;
+  */
+  font-size: .6em;
+  line-height: 1.42;
+  font-weight: bolder;
+  border-width: 0;
+  border-style: solid;
+  background: transparent;
+  border-radius: 0.2666666667em;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: bottom;
+  transition: box-shadow 0.2s, transform 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+.btn:active {
+  transform: translateY(3px);
+}
+.equal {
+  box-shadow: 0 3px 0 0 #367f14, 0 4px 4px -1px rgba(0, 0, 0, 0.6), 0 4px 6px 1px rgba(0, 0, 0, 0.3), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+  background-color: #52C11F;
+  background-image: linear-gradient(-45deg, #52C11F, #7ccc14);
+  color: #E6EAEF;
+}
+.equal:hover {
+  box-shadow: 0 3px 0 0 #367f14, 0 6px 4px -1px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.14) inset;
+}
+.equal:active {
+  box-shadow: 0 0px 0 0 #2d6911, 0 3px 0 0 rgba(0, 0, 0, 0), 0 4px 16px rgba(0, 0, 0, 0), 0 1px 2px 1px rgba(0, 0, 0, 0.5) inset, 0 -18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+  transition: 0s;
+  color: #367f14;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.num {
+  box-shadow: 0 3px 0 0 #b7c3d1, 0 4px 4px -1px rgba(0, 0, 0, 0.6), 0 4px 6px 1px rgba(0, 0, 0, 0.3), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+  background-color: #E6EAEF;
+  background-image: linear-gradient(-45deg, #E6EAEF, #e4edf1);
+  color: #252730;
+}
+.num:hover {
+  box-shadow: 0 3px 0 0 #b7c3d1, 0 6px 4px -1px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.14) inset;
+}
+.num:active {
+  box-shadow: 0 0px 0 0 #a8b6c7, 0 3px 0 0 rgba(0, 0, 0, 0), 0 4px 16px rgba(0, 0, 0, 0), 0 1px 2px 1px rgba(0, 0, 0, 0.5) inset, 0 -18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+  transition: 0s;
+  color: #b7c3d1;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.operator {
+  box-shadow: 0 3px 0 0 #082fa6, 0 4px 4px -1px rgba(0, 0, 0, 0.6), 0 4px 6px 1px rgba(0, 0, 0, 0.3), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+  background-color: #0B44EF;
+  background-image: linear-gradient(-45deg, #0B44EF, #007dfa);
+  color: #E6EAEF;
+}
+.operator:hover {
+  box-shadow: 0 3px 0 0 #082fa6, 0 6px 4px -1px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.14) inset;
+}
+.operator:active {
+  box-shadow: 0 0px 0 0 #07288d, 0 3px 0 0 rgba(0, 0, 0, 0), 0 4px 16px rgba(0, 0, 0, 0), 0 1px 2px 1px rgba(0, 0, 0, 0.5) inset, 0 -18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+  transition: 0s;
+  color: #082fa6;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.special {
+  box-shadow: 0 3px 0 0 #b3004a, 0 4px 4px -1px rgba(0, 0, 0, 0.6), 0 4px 6px 1px rgba(0, 0, 0, 0.3), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+  background-color: #FF006A;
+  background-image: linear-gradient(-45deg, #FF006A, #ff00aa);
+  color: #E6EAEF;
+}
+.special:hover {
+  box-shadow: 0 3px 0 0 #b3004a, 0 6px 4px -1px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.5), 0 1px 2px 1px rgba(0, 0, 0, 0) inset, 0 18px 32px -2px rgba(255, 255, 255, 0.14) inset;
+}
+.special:active {
+  box-shadow: 0 0px 0 0 #990040, 0 3px 0 0 rgba(0, 0, 0, 0), 0 4px 16px rgba(0, 0, 0, 0), 0 1px 2px 1px rgba(0, 0, 0, 0.5) inset, 0 -18px 32px -2px rgba(255, 255, 255, 0.1) inset;
+  transition: 0s;
+  color: #b3004a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
