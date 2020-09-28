@@ -6,7 +6,7 @@ body{
 .container{
     display: flex;
     flex-direction: column;
-    border: 5px solid black;
+    border: 2px solid black;
     padding: .25em;
     margin: auto;
     width: 25em;
@@ -26,13 +26,13 @@ The Display
 ---------------------------------------------
 */   
 .display{
-  display: flex;
   height: 4em;
   font-size: 2em;
   margin: .3em;
   background: whitesmoke;
   border: .2em solid black;
   /* border-radius: 8%; */
+  text-align: right;
 }
 
 /* 
