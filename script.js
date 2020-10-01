@@ -13,7 +13,11 @@ function click(e){
     //console.log(e.target.name);
     //number pressed     
     if(e.target.className === 'btn num'){
-        if(lastPress === 'equal'){
+        if (displayText === '0'){
+            displayConsoleInfo(); 
+            return; 
+        }
+        else if(lastPress === 'equal'){
             displayText = '';
             lastPress = '';
         }
