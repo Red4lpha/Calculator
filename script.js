@@ -69,6 +69,18 @@ function click(e){
             displayConsoleInfo();  
         }
     }
+    else if(e.target.name === 'delete'){
+        if(displayText === ''){
+            displayConsoleInfo(); 
+            return; 
+        }
+        else{
+            displayText = displayText.toString();
+            displayText = displayText.slice(0, -1);
+            displayBot.textContent =  displayText;
+            displayConsoleInfo();
+        } 
+    }
     else if(e.target.className === 'btn equal'){
         if (displayText === ''){return;}
         else if(operandOne === ''){return;}
