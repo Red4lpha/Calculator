@@ -14,10 +14,9 @@ function click(e){
     //number pressed     
     if(e.target.className === 'btn num'){
         if (displayText === '0'){
-            displayConsoleInfo(); 
-            return; 
+            displayText = ''; 
         }
-        else if(lastPress === 'equal'){
+        if(lastPress === 'equal'){
             displayText = '';
             lastPress = '';
         }
@@ -37,6 +36,20 @@ function click(e){
             return;
              
         }
+        else if(e.target.name === 'decimal'){
+            displayText = displayText.toString();
+            //console.log(displayText.indexOf('.'));
+            if(displayText.indexOf('.') != -1){
+                displayConsoleInfo();
+                return;
+            }
+            else {
+                displayConsoleInfo();
+                displayText += e.target.innerText;
+                displayBot.textContent =  displayText;
+            }
+        }    
+
         else if(e.target.name === 'sign'){
             if(displayText > 0){
                 //let temp = '-';
