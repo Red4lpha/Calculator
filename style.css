@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Calistoga');
+@import url('https://fonts.googleapis.com/css?family=Sarpanch');
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+@import url('https://fonts.googleapis.com/css?family=ZCOOL QingKe HuangYou');
 
 body{
   background: rgb(63, 63, 63);
@@ -27,13 +30,14 @@ The Display
 */   
 #display{
   height: 4em;
-  font-size: 2em;
+  font-size: 3em;
   margin: .3em;
   background: whitesmoke;
   border: .2em solid black;
   /* border-radius: 8%; */
   text-align: right;
   padding: 0;
+  font-family: 'ZCOOL QingKe HuangYou', sans-serif;
 }
 .display {
   padding: .7em .3em .7em .3em;

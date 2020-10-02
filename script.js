@@ -1,5 +1,6 @@
 const numKeys = document.querySelectorAll('.btn');
-const displayBot = document.querySelector('#displayBot')
+const displayBot = document.querySelector('#displayBot');
+const displayTop = document.querySelector('#displayTop');
 let displayText = '';
 let operandOne = '';
 let operandTwo = ''; 
@@ -76,9 +77,12 @@ function click(e){
             displayText = '';
             displayConsoleInfo();  
         }
-        // 
+        //if this is not the first operator called
         else if(operandOne != ''){
             console.log("btnOp - operandOne == # called");
+            if(displayTop.textContent === ''){displayTop.textContent +=  operandOne + getSymbol(operator) + displayText;}
+            else{displayTop.textContent += getSymbol(operator) + displayText;}
+            
             equal();
             lastPress = 'equal';
             operator = e.target.name;
@@ -130,10 +134,18 @@ function equal(e){
 //Special functions
 function clear(){
     displayText = '';
-    operator = '';
-    displayBot.textContent =  displayText; 
+    operandOne = operandTwo = operator =  '';
+    displayBot.textContent =  displayText;
+    displayTop.textContent =  ''; 
 }
-
+//Converts the operator text into the corresponding symbol
+function getSymbol(name){
+    if(name === 'plus'){return '+';}
+    else if(name === 'minus'){return '-';}
+    else if(name === 'multiply'){return '*';}
+    else if(name === 'divide'){return '/';}
+    else {return ' ';}
+}
 
 
 
