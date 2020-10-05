@@ -21,6 +21,9 @@ function click(e){
             displayText = '';
             lastPress = '';
         }
+        //if the current number length is too large
+        if(displayText.length >= 13){return;}
+        
         displayText += e.target.innerText;
         displayBot.textContent =  displayText;
         displayConsoleInfo();    
@@ -39,7 +42,7 @@ function click(e){
         }
         else if(e.target.name === 'decimal'){
             displayText = displayText.toString();
-            //console.log(displayText.indexOf('.'));
+            //if a decimal is already present
             if(displayText.indexOf('.') != -1){
                 displayConsoleInfo();
                 return;
@@ -80,7 +83,7 @@ function click(e){
         //if this is not the first operator called
         else if(operandOne != ''){
             console.log("btnOp - operandOne == # called");
-            if(displayTop.textContent === ''){displayTop.textContent +=  operandOne + getSymbol(operator) + displayText;}
+            if(displayTop.textContent === ''){displayTop.textContent +=  operandOne + getSymbol(operator) + displayText}
             else{displayTop.textContent += getSymbol(operator) + displayText;}
             
             equal();
@@ -108,6 +111,7 @@ function click(e){
         else{
             equal();
             lastPress = e.target.name;
+            displayTop.textContent = displayText;
             displayConsoleInfo();  
         }
     }
@@ -133,8 +137,7 @@ function equal(e){
 
 //Special functions
 function clear(){
-    displayText = '';
-    operandOne = operandTwo = operator =  '';
+    displayText = operandOne = operandTwo = operator =  '';
     displayBot.textContent =  displayText;
     displayTop.textContent =  ''; 
 }
@@ -173,4 +176,8 @@ function operate(operator, num1, num2){
     else if(operator === 'minus'){return subtract(num1, num2);}
     else if(operator === 'multiply'){return multiply(num1, num2);}
     else if(operator === 'divide'){return divide(num1, num2);}
+    else{
+        console.log("invalid operator: " + operator);
+        return '';
+    }
 }
