@@ -83,8 +83,17 @@ function click(e){
         //if this is not the first operator called
         else if(operandOne != ''){
             console.log("btnOp - operandOne == # called");
-            if(displayTop.textContent === ''){displayTop.textContent +=  operandOne + getSymbol(operator) + displayText}
-            else{displayTop.textContent += getSymbol(operator) + displayText;}
+            if(displayTop.textContent === ''){displayTop.textContent =  operandOne + getSymbol(operator) + displayText}
+            else{
+                let tempDisplayTop = displayTop.textContent + getSymbol(operator) + displayText;
+                
+                //check to see if top display is too long
+                if(tempDisplayTop.length > 40){
+                    tempDisplayTop = tempDisplayTop.toString();
+                    displayTop.textContent = splitTop(tempDisplayTop);   
+                }
+                else{displayTop.textContent = tempDisplayTop;}
+            }
             
             equal();
             lastPress = 'equal';
@@ -116,12 +125,38 @@ function click(e){
         }
     }
 }
+
+//-----------------------
+//Helper functions
+//-----------------------
 function displayConsoleInfo(e){
     console.log("OperandOne = " + operandOne);    
     console.log("OperandTwo = " + operandTwo);
     console.log("Operator = " + operator);
     console.log("DisplayText = " + displayText);
     console.log("lastPress = " + lastPress); 
+}
+//Converts the operator text into the corresponding symbol
+function getSymbol(name){
+    if(name === 'plus'){return '+';}
+    else if(name === 'minus'){return '-';}
+    else if(name === 'multiply'){return '*';}
+    else if(name === 'divide'){return '/';}
+    else {return ' ';}
+}
+function splitTop(display){
+    let temp = display.length - 40;
+    return display.slice(temp+1);
+}
+
+
+//-----------------------
+//Special functions
+//-----------------------
+function clear(){
+    displayText = operandOne = operandTwo = operator =  '';
+    displayBot.textContent =  displayText;
+    displayTop.textContent =  ''; 
 }
 
 function equal(e){
@@ -132,28 +167,9 @@ function equal(e){
     if(displayText === 'ERROR'){displayText = '';}
 }
 
-
-
-
-//Special functions
-function clear(){
-    displayText = operandOne = operandTwo = operator =  '';
-    displayBot.textContent =  displayText;
-    displayTop.textContent =  ''; 
-}
-//Converts the operator text into the corresponding symbol
-function getSymbol(name){
-    if(name === 'plus'){return '+';}
-    else if(name === 'minus'){return '-';}
-    else if(name === 'multiply'){return '*';}
-    else if(name === 'divide'){return '/';}
-    else {return ' ';}
-}
-
-
-
-
+//-----------------------
 //Math functions
+//-----------------------
 function add(num1, num2){
     return parseFloat(num1) + parseFloat(num2);
 }
@@ -165,6 +181,8 @@ function multiply(num1, num2){
 }
 function divide(num1, num2){
     if(num2 === '0'){
+        operandOne = operandTwo = operator =  '';
+        displayTop.textContent =  '';
         return 'ERROR';
     }
     else {return num1 / num2;}
