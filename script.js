@@ -6,6 +6,19 @@ let operandOne = '';
 let operandTwo = ''; 
 let operator = '';
 let lastPress = '';
+
+document.addEventListener('keydown', (e) => {
+    console.log(e.key);
+    //document.querySelector('1').click();
+    //let btnList = document.querySelectorAll('button');
+    let btnKey = Array.from(document.querySelectorAll('button')).find(el => el.textContent === e.key);
+    if (btnKey != undefined){
+        btnKey.click();
+    }
+});
+
+
+
 numKeys.forEach((numKey) => {
     numKey.addEventListener('click', click);
   });
