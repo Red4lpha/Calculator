@@ -1,6 +1,11 @@
 const numKeys = document.querySelectorAll('.btn');
 const displayBot = document.querySelector('#displayBot');
 const displayTop = document.querySelector('#displayTop');
+const btnEnter = document.querySelector('#btnEqual');
+const btnDivide = document.querySelector('#btnDivide');
+const btnMultiply = document.querySelector('#btnMultiply');
+const btnDelete = document.querySelector('#btnDelete');
+const btnArray = Array.from(document.querySelectorAll('button'));
 let displayText = '';
 let operandOne = '';
 let operandTwo = ''; 
@@ -9,18 +14,42 @@ let lastPress = '';
 
 document.addEventListener('keydown', (e) => {
     console.log(e.key);
-    //document.querySelector('1').click();
-    //let btnList = document.querySelectorAll('button');
-    let btnKey = Array.from(document.querySelectorAll('button')).find(el => el.textContent === e.key);
+    switch(e.key){
+        case 'Enter':
+            console.log("Enter clicked")
+            document.querySelector('#btnEqual').click();
+            return;
+            break;
+        case '/':
+            console.log("Enter clicked")
+            document.querySelector('#btnDivide').click();
+            return;
+            break;
+        case '*':
+            console.log("Enter clicked")
+            document.querySelector('#btnMultiply').click();
+            return;
+            break;  
+        case 'Backspace':
+            console.log("Enter clicked")
+            document.querySelector('#btnDelete').click();
+            return;
+            break;
+        default:
+            
+    }
+
+    let btnKey = btnArray.find(el => el.textContent === e.key);
     if (btnKey != undefined){
-        btnKey.click();
+        btnKey.mousedown();
+        //console.log(btnKey);
     }
 });
 
 
 
 numKeys.forEach((numKey) => {
-    numKey.addEventListener('click', click);
+    numKey.addEventListener('mousedown', click);
   });
 function click(e){
     console.log(e.target.innerText);
