@@ -49,7 +49,7 @@ document.addEventListener('keydown', (e) => {
 
 
 numKeys.forEach((numKey) => {
-    numKey.addEventListener('mousedown', click);
+    numKey.addEventListener('click', click);
   });
 function click(e){
     console.log(e.target.innerText);
