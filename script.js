@@ -13,36 +13,37 @@ let operator = '';
 let lastPress = '';
 
 document.addEventListener('keydown', (e) => {
-    console.log(e.key);
+    console.log("keydown: " + e.key);
+    
+    
     switch(e.key){
         case 'Enter':
-            console.log("Enter clicked")
+            console.log("Enter key clicked")
             document.querySelector('#btnEqual').click();
             return;
             break;
         case '/':
-            console.log("Enter clicked")
+            console.log("divide key clicked")
             document.querySelector('#btnDivide').click();
             return;
             break;
         case '*':
-            console.log("Enter clicked")
+            console.log("mul key clicked")
             document.querySelector('#btnMultiply').click();
             return;
             break;  
         case 'Backspace':
-            console.log("Enter clicked")
+            console.log("backspace key clicked")
             document.querySelector('#btnDelete').click();
             return;
             break;
         default:
             
     }
-
     let btnKey = btnArray.find(el => el.textContent === e.key);
     if (btnKey != undefined){
-        btnKey.mousedown();
-        //console.log(btnKey);
+        btnKey.click();
+        console.log(btnKey);
     }
 });
 
@@ -52,7 +53,7 @@ numKeys.forEach((numKey) => {
     numKey.addEventListener('click', click);
   });
 function click(e){
-    console.log(e.target.innerText);
+    console.log("click listener: " + e.target.innerText);
     //console.log(e.target.name);
     //number pressed     
     if(e.target.className === 'btn num'){
@@ -156,7 +157,7 @@ function click(e){
             displayConsoleInfo();
         } 
     }
-    else if(e.target.className === 'btn equal'){
+    else if(e.target.name === 'equal'){
         if (displayText === ''){return;}
         else if(operandOne === ''){return;}
         else{
@@ -177,6 +178,7 @@ function displayConsoleInfo(e){
     console.log("Operator = " + operator);
     console.log("DisplayText = " + displayText);
     console.log("lastPress = " + lastPress); 
+    console.log("--------------");
 }
 //Converts the operator text into the corresponding symbol
 function getSymbol(name){
@@ -196,6 +198,7 @@ function splitTop(display){
 //Special functions
 //-----------------------
 function clear(){
+    console.log('clear function called');
     displayText = operandOne = operandTwo = operator =  '';
     displayBot.textContent =  displayText;
     displayTop.textContent =  ''; 
