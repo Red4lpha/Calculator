@@ -65,7 +65,9 @@ function click(e){
             lastPress = '';
         }
         //if the current number length is too large
-        if(displayText.length >= 13){return;}
+        if(displayText.length >= 13){
+            e.target.blur();
+            return;}
         
         displayText += e.target.innerText;
         displayBot.textContent =  displayText;
@@ -80,6 +82,7 @@ function click(e){
         //if this is the first command and no numbers are present
         if(displayText === ''){
             displayConsoleInfo(); 
+            e.target.blur();
             return;
              
         }
@@ -88,6 +91,7 @@ function click(e){
             //if a decimal is already present
             if(displayText.indexOf('.') != -1){
                 displayConsoleInfo();
+                e.target.blur();
                 return;
             }
             else {
@@ -103,6 +107,7 @@ function click(e){
                 displayText = '-' + displayText;
                 displayBot.textContent =  displayText;
                 displayConsoleInfo(); 
+                e.target.blur();
                 return;
             }
             else if(displayText < 0) {
@@ -111,6 +116,7 @@ function click(e){
                 displayText = temp;
                 displayBot.textContent =  displayText;
                 displayConsoleInfo(); 
+                e.target.blur();
                 return;
             }
         }
@@ -148,6 +154,7 @@ function click(e){
     else if(e.target.name === 'delete'){
         if(displayText === ''){
             displayConsoleInfo(); 
+            e.target.blur();
             return; 
         }
         else{
@@ -158,8 +165,14 @@ function click(e){
         } 
     }
     else if(e.target.name === 'equal'){
-        if (displayText === ''){return;}
-        else if(operandOne === ''){return;}
+        if (displayText === ''){
+            e.target.blur();
+            return;
+        }
+        else if(operandOne === ''){
+            e.target.blur();
+            return;
+        }
         else{
             equal();
             lastPress = e.target.name;
@@ -167,6 +180,7 @@ function click(e){
             displayConsoleInfo();  
         }
     }
+    e.target.blur();
 }
 
 //-----------------------
